@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MapMarkerTemplateSelector"
+             xmlns:maps="clr-namespace:Syncfusion.SfMaps.XForms;assembly=Syncfusion.SfMaps.XForms"
+             mc:Ignorable="d"
+             x:Class="MapMarkerTemplateSelector.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="HighPopulationTemplate">
+                <StackLayout IsClippedToBounds="false"
+                             HorizontalOptions="StartAndExpand"
+                             VerticalOptions="Center"
+                             HeightRequest="30">
+                    <Image Source="{Binding  ImageName}"
+                           Scale="1"
+                           Aspect="AspectFit "
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           HeightRequest="15"
+                           WidthRequest="23" />
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="LowPopulationTemplate">
+                <StackLayout IsClippedToBounds="false"
+                             HorizontalOptions="StartAndExpand"
+                             VerticalOptions="Center"
+                             HeightRequest="30">
+                    <Image Source="{Binding  ImageName1}"
+                           Scale="1"
+                           Aspect="AspectFit "
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           HeightRequest="15"
+                           WidthRequest="23" />
+                </StackLayout>
+            </DataTemplate>
+            
+            <local:MapsDataTemplateSelector x:Key="personDataTemplateSelector"
+                                            HighPopulationTemplate="{StaticResource HighPopulationTemplate}"
+                                            LowPopulationTemplate="{StaticResource LowPopulationTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <maps:SfMaps x:Name="sfmap"
+                     Grid.Row="1"
+                     BackgroundColor="White">
+            <maps:SfMaps.Layers>
+                <maps:ImageryLayer MarkerTemplate="{StaticResource personDataTemplateSelector}">
+                    <maps:ImageryLayer.Markers>
+
+                        <local:CustomMarker  Label="United States"
+                                             Population="321174000"
+                                             Latitude="40"
+                                             Longitude="-101" />
+                        <local:CustomMarker Label="Congo"
+                                            Population="204436000"
+                                            Latitude="-1.6"
+                                            Longitude="24.4" />
+                        <local:CustomMarker Label="Kazakhstan"
+                                            Population="137032000"
+                                            Latitude="49.9"
+                                            Longitude="72.23" />
+                        <local:CustomMarker Label="Australia"
+                                            Population="255461700"
+                                            Latitude="-20.54"
+                                            Longitude="134.10" />
+
+                    </maps:ImageryLayer.Markers>
+                </maps:ImageryLayer>
+            </maps:SfMaps.Layers>
+        </maps:SfMaps>
+    </ContentPage.Content>
+
+</ContentPage>
