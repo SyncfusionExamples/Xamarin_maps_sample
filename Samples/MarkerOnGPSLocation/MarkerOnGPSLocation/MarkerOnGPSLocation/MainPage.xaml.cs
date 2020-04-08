@@ -33,6 +33,10 @@ namespace MarkerOnGPSLocation
                     marker.Latitude = location.Latitude.ToString();
                     marker.Longitude = location.Longitude.ToString();
                     this.layer.Markers = new ObservableCollection<MapMarker> { marker };
+
+                    this.layer.GeoCoordinates = new Point(location.Latitude, location.Longitude);
+                    this.layer.Radius = 700;
+                    this.layer.DistanceType = DistanceType.KiloMeter;
                 }
             }
             catch (Exception ex)

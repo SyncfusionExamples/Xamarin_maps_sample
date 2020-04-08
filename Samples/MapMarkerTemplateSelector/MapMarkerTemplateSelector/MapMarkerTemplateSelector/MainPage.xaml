@@ -15,7 +15,7 @@
                              HorizontalOptions="StartAndExpand"
                              VerticalOptions="Center"
                              HeightRequest="30">
-                    <Image Source="{Binding  ImageName}"
+                    <Image Source="{Binding  HighPopulationMarker}"
                            Scale="1"
                            Aspect="AspectFit "
                            HorizontalOptions="StartAndExpand"
@@ -29,7 +29,7 @@
                              HorizontalOptions="StartAndExpand"
                              VerticalOptions="Center"
                              HeightRequest="30">
-                    <Image Source="{Binding  ImageName1}"
+                    <Image Source="{Binding  LowPopulationMarker}"
                            Scale="1"
                            Aspect="AspectFit "
                            HorizontalOptions="StartAndExpand"
@@ -38,7 +38,7 @@
                            WidthRequest="23" />
                 </StackLayout>
             </DataTemplate>
-            
+
             <local:MapsDataTemplateSelector x:Key="personDataTemplateSelector"
                                             HighPopulationTemplate="{StaticResource HighPopulationTemplate}"
                                             LowPopulationTemplate="{StaticResource LowPopulationTemplate}" />
@@ -47,33 +47,29 @@
 
     <ContentPage.Content>
         <maps:SfMaps x:Name="sfmap"
-                     Grid.Row="1"
                      BackgroundColor="White">
             <maps:SfMaps.Layers>
                 <maps:ImageryLayer MarkerTemplate="{StaticResource personDataTemplateSelector}">
                     <maps:ImageryLayer.Markers>
-
                         <local:CustomMarker  Label="United States"
-                                             Population="321174000"
-                                             Latitude="40"
-                                             Longitude="-101" />
+                                             Population="321"
+                                             Latitude="37.090240"
+                                             Longitude="-95.712891" />
                         <local:CustomMarker Label="Congo"
-                                            Population="204436000"
-                                            Latitude="-1.6"
-                                            Longitude="24.4" />
+                                            Population="204"
+                                            Latitude="-4.038333"
+                                            Longitude="21.758663" />
                         <local:CustomMarker Label="Kazakhstan"
-                                            Population="137032000"
-                                            Latitude="49.9"
-                                            Longitude="72.23" />
+                                            Population="137"
+                                            Latitude="48.019573"
+                                            Longitude="66.923683" />
                         <local:CustomMarker Label="Australia"
-                                            Population="255461700"
-                                            Latitude="-20.54"
-                                            Longitude="134.10" />
-
+                                            Population="255"
+                                            Latitude="-25.274399"
+                                            Longitude="133.775131" />
                     </maps:ImageryLayer.Markers>
                 </maps:ImageryLayer>
             </maps:SfMaps.Layers>
         </maps:SfMaps>
     </ContentPage.Content>
-
 </ContentPage>
