@@ -23,20 +23,31 @@ namespace MapMarkerTemplateSelector
 
     public class CustomMarker : MapMarker
     {
-        public ImageSource ImageName { get; set; }
-        public ImageSource ImageName1 { get; set; }
+        /// <summary>
+        /// Gets or sets marker image for high population.
+        /// </summary>
+        public ImageSource HighPopulationMarker { get; set; }
+
+        /// <summary>
+        /// Gets or sets marker image for low population.
+        /// </summary>
+        public ImageSource LowPopulationMarker { get; set; }
+
+        /// <summary>
+        /// Gets or sets population (in million)
+        /// </summary>
         public int Population { get; set; }
         public CustomMarker()
         {
             if (Device.RuntimePlatform == Device.UWP)
             {
-                ImageName = ImageSource.FromResource("MapMarkerTemplateSelector.Icons.place.png", typeof(CustomMarker).GetTypeInfo().Assembly);
-                ImageName1 = ImageSource.FromResource("MapMarkerTemplateSelector.Icons.pin.png", typeof(CustomMarker).GetTypeInfo().Assembly);
+                HighPopulationMarker = ImageSource.FromResource("MapMarkerTemplateSelector.Icons.place.png", typeof(CustomMarker).GetTypeInfo().Assembly);
+                LowPopulationMarker = ImageSource.FromResource("MapMarkerTemplateSelector.Icons.pin.png", typeof(CustomMarker).GetTypeInfo().Assembly);
             }
             else
             {
-                ImageName = ImageSource.FromResource("MapMarkerTemplateSelector.Icons.place.png");
-                ImageName1 = ImageSource.FromResource("MapMarkerTemplateSelector.Icons.pin.png");
+                HighPopulationMarker = ImageSource.FromResource("MapMarkerTemplateSelector.Icons.place.png");
+                LowPopulationMarker = ImageSource.FromResource("MapMarkerTemplateSelector.Icons.pin.png");
             }
         }
     }
