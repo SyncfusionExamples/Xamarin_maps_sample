@@ -35,7 +35,7 @@ namespace MarkerOnGPSLocation
                     this.layer.Markers = new ObservableCollection<MapMarker> { marker };
 
                     this.layer.GeoCoordinates = new Point(location.Latitude, location.Longitude);
-                    this.layer.Radius = 700;
+                    this.layer.Radius = 5;
                     this.layer.DistanceType = DistanceType.KiloMeter;
                 }
             }
